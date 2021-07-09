@@ -51,7 +51,6 @@ def neo_list(request):
         return Response(neo_serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
                 
             
-
         
         
             

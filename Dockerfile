@@ -4,13 +4,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # set up work directory
 WORKDIR /code
 COPY requirements.txt /code/
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . /code/
+EXPOSE 8000
+ENTRYPOINT ["python", "sample_project/manage.py"]
+CMD ["runserver", "127.0.0.1:8000"]
 
-
-# "python.pythonPath": "/bin/python3",
-# here requirements.txt will have all softwares needed to add a new software
-# add it in the requirement.txt and then do docker-compose down to down all 
-# the running containers , later docker-compose up -d --build to rebuild the 
-# image and contianer in this process the new requirement get installed during 
-# the image build up  
