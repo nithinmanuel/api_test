@@ -13,7 +13,12 @@ please refer requiremnets.txt , docker and docker compose installed locally for 
 
 # How to start it 
     
-first clone this project, create a new folder named api_nasa and paste the cloned project into the api_nasa folder .next you have to install the venv virtual enviornment where you need to run the django and django rest framework. if you copy the path to api_nasa folder and python3 -m venv /path/api_nasa      , your path is like home/some_name/api_nasa in linux   activate the virtual env    source /path/api_nasa/bin/activate  (api_nasa) ni@N-computer: , you can see the activated virtual env (api_nasa) in your terminal run the   pip install -r requirements.txt , to install all dajgno and django restframework do ls you can see the folders cd sample_project now run python manage.py runserver paste the below url in your browser. http://127.0.0.1:8000/neos/ 
+first clone this project, create a new folder named api_nasa and paste the cloned project into the api_nasa folder .next you have to install the venv virtual enviornment where you need to run the django and django rest framework. if you copy the path to api_nasa folder and python3 -m venv /path/api_nasa      , your path is like home/some_name/api_nasa in linux   activate the virtual env    source /path/api_nasa/bin/activate  (api_nasa) ni@N-computer: , you can see the activated virtual env (api_nasa) in your terminal run the   pip install -r requirements.txt , to install all dajgno and django restframework do ls you can see the folders cd sample_project now run python manage.py runserver paste the below url in your browser. http://127.0.0.1:8000/neos/  . Then run the migrations like python manage.py makemigrations and python manage.py migrate this is the normal way to do using virtualenv.
+
+next you can use docker build -t app_name -f Dockerfile  to create a docker image . you may ask why can't make a dockerimage without doing the above steps, yesyou can do that then you need a specify volume to execute the docker commands , that is not desirable if you want to port the image to someother platform , the integrated embeded database is the reason for it , you need to migrate to the database in the old fashion (above mentioned)to do so you need to install dependencies (mentioned above) but once you have the database then you can make the image with it and when you run it you do not need a volume becasue you are storing the data inside the database but one problem is ahead once you plan to do more migrations you need to execute inside a container .
+
+The best practice to use postgres or mysql and make it as two docker files . 
+
 
 
 
